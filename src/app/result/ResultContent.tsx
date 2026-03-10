@@ -24,6 +24,7 @@ function ResultContentInner() {
 
   const aParam = searchParams.get("a");
   const qParam = searchParams.get("q");
+  const isSharedView = searchParams.get("shared") === "1";
   if (!aParam || !qParam) {
     router.replace("/");
     return null;
@@ -52,7 +53,7 @@ function ResultContentInner() {
 
   const shareText = `ニンゲン力検定の結果: ${resultType.title} 人間力${ningenScore}点 / 社不度${shafuScore}% #ニンゲン力検定`;
   const siteUrl = "https://ningen-kentei.vercel.app";
-  const resultUrl = `${siteUrl}/result?q=${qParam}&a=${aParam}`;
+  const resultUrl = `${siteUrl}/result?q=${qParam}&a=${aParam}&shared=1`;
   const fullShareText = `${shareText}\n${resultUrl}`;
 
   const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(fullShareText)}`;
@@ -183,66 +184,86 @@ function ResultContentInner() {
         </div>
       </section>
 
-      {/* SNS share buttons */}
-      <section className="flex flex-wrap justify-center gap-3 mb-8">
-        <a
-          href={twitterUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 px-5 py-2.5 font-bold text-sm bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
-        >
-          <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current">
-            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-          </svg>
-          シェア
-        </a>
-        <a
-          href={lineUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 px-5 py-2.5 font-bold text-sm text-white transition-colors"
-          style={{ backgroundColor: "#06C755" }}
-        >
-          LINE
-        </a>
-        <button
-          onClick={handleCopy}
-          className="flex items-center gap-2 px-5 py-2.5 font-bold text-sm bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-4 h-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"
-            />
-          </svg>
-          リンクコピー
-        </button>
-      </section>
+      {isSharedView ? (
+        <>
+          {/* Shared view: CTA to take the quiz */}
+          <section className="text-center mb-8">
+            <p className="text-gray-400 text-sm mb-6">
+              これは誰かの診断結果です。あなたはどんなタイプ？
+            </p>
+            <a
+              href="/quiz"
+              className="group relative inline-block px-12 py-4 font-black text-lg text-black bg-amber-400 hover:bg-amber-300 transition-all"
+            >
+              <span className="relative z-10">自分も診断してみる</span>
+              <div className="absolute inset-0 border-2 border-amber-400 translate-x-1.5 translate-y-1.5 group-hover:translate-x-1 group-hover:translate-y-1 transition-transform" />
+            </a>
+          </section>
+        </>
+      ) : (
+        <>
+          {/* Own result: SNS share buttons */}
+          <section className="flex flex-wrap justify-center gap-3 mb-8">
+            <a
+              href={twitterUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-5 py-2.5 font-bold text-sm bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
+            >
+              <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+              シェア
+            </a>
+            <a
+              href={lineUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-5 py-2.5 font-bold text-sm text-white transition-colors"
+              style={{ backgroundColor: "#06C755" }}
+            >
+              LINE
+            </a>
+            <button
+              onClick={handleCopy}
+              className="flex items-center gap-2 px-5 py-2.5 font-bold text-sm bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-4 h-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"
+                />
+              </svg>
+              リンクコピー
+            </button>
+          </section>
 
-      {/* Navigation */}
-      <section className="flex flex-col items-center gap-4">
-        <a
-          href="/quiz"
-          className="group relative inline-block px-10 py-3 font-black text-sm text-black bg-amber-400 hover:bg-amber-300 transition-all"
-        >
-          <span className="relative z-10">もう一度診断する</span>
-          <div className="absolute inset-0 border-2 border-amber-400 translate-x-1 translate-y-1 group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform" />
-        </a>
-        <a
-          href="/"
-          className="text-gray-500 hover:text-gray-300 text-xs tracking-wider transition-colors"
-        >
-          トップに戻る
-        </a>
-      </section>
+          {/* Navigation */}
+          <section className="flex flex-col items-center gap-4">
+            <a
+              href="/quiz"
+              className="group relative inline-block px-10 py-3 font-black text-sm text-black bg-amber-400 hover:bg-amber-300 transition-all"
+            >
+              <span className="relative z-10">もう一度診断する</span>
+              <div className="absolute inset-0 border-2 border-amber-400 translate-x-1 translate-y-1 group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform" />
+            </a>
+            <a
+              href="/"
+              className="text-gray-500 hover:text-gray-300 text-xs tracking-wider transition-colors"
+            >
+              トップに戻る
+            </a>
+          </section>
+        </>
+      )}
     </div>
   );
 }
