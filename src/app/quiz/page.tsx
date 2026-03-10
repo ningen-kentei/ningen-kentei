@@ -1,0 +1,144 @@
+"use client";
+
+import { useState, useCallback, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { questions, type Choice } from "@/lib/questions";
+
+function shuffleArray<T>(array: T[]): T[] {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
+type ShuffledChoice = Choice & { originalIndex: number };
+
+const labels = ["A", "B", "C", "D"];
+
+export default function QuizPage() {
+  const router = useRouter();
+  const [shuffledQuestions] = useState(() =>
+    shuffleArray(questions).map((q) => ({
+      ...q,
+      shuffledChoices: shuffleArray(
+        q.choices.map((c, i) => ({ ...c, originalIndex: i }))
+      ) as ShuffledChoice[],
+    }))
+  );
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [answers, setAnswers] = useState<number[]>([]);
+  const [fade, setFade] = useState<"in" | "out">("in");
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+
+  const question = shuffledQuestions[currentIndex];
+  const total = questions.length;
+
+  useEffect(() => {
+    router.prefetch("/result");
+  }, [router]);
+
+  const handleSelect = useCallback(
+    (shuffledIdx: number) => {
+      if (selectedIndex !== null) return;
+
+      setSelectedIndex(shuffledIdx);
+      setFade("out");
+
+      const originalIndex = question.shuffledChoices[shuffledIdx].originalIndex;
+      const isLast = currentIndex + 1 >= total;
+
+      setTimeout(() => {
+        const newAnswers = [...answers, originalIndex];
+
+        if (isLast) {
+          const qIds = shuffledQuestions.map((q) => q.id).join(",");
+          const encoded = newAnswers.join(",");
+          router.push(`/result?q=${qIds}&a=${encoded}`);
+          return;
+        }
+
+        setAnswers(newAnswers);
+        setCurrentIndex((prev) => prev + 1);
+        setSelectedIndex(null);
+        setFade("in");
+      }, isLast ? 300 : 500);
+    },
+    [answers, currentIndex, total, router, selectedIndex, shuffledQuestions, question]
+  );
+
+  const progress = ((currentIndex + 1) / total) * 100;
+
+  return (
+    <div className="min-h-screen bg-dotgrid text-white flex flex-col">
+      {/* Progress bar */}
+      <div className="sticky top-0 z-10 bg-[#0e0e1a]/95 backdrop-blur-sm px-4 py-3 border-b border-white/5">
+        <div className="flex items-center justify-between mb-2">
+          <span className="text-xs font-bold text-amber-400 tracking-wider">
+            Q{currentIndex + 1}
+            <span className="text-gray-600 ml-1">/ {total}</span>
+          </span>
+          <span className="text-xs font-bold text-gray-500">
+            {Math.round(progress)}%
+          </span>
+        </div>
+        <div className="w-full h-1 bg-gray-800/80 overflow-hidden">
+          <div
+            className="h-full transition-all duration-500 ease-out bg-amber-400"
+            style={{ width: `${progress}%` }}
+          />
+        </div>
+      </div>
+
+      {/* Question area */}
+      <div
+        className={`flex-1 flex flex-col items-center justify-center px-4 py-8 max-w-2xl mx-auto w-full transition-opacity duration-300 ${
+          fade === "out" ? "opacity-0" : "opacity-100"
+        }`}
+      >
+        {/* Question number */}
+        <div className="mb-6 slide-in">
+          <span className="inline-block px-3 py-1 bg-amber-400 text-black text-xs font-black tracking-wider">
+            QUESTION {currentIndex + 1}
+          </span>
+        </div>
+
+        {/* Question text */}
+        <h2 className="text-xl sm:text-2xl font-bold text-center mb-10 leading-relaxed">
+          {question.text}
+        </h2>
+
+        {/* Choices */}
+        <div className="w-full space-y-3">
+          {question.shuffledChoices.map((choice, i) => {
+            const isSelected = selectedIndex === i;
+            return (
+              <button
+                key={i}
+                onClick={() => handleSelect(i)}
+                disabled={selectedIndex !== null}
+                className={`group w-full text-left px-5 py-4 transition-all duration-200 border-l-4 ${
+                  isSelected
+                    ? "border-l-amber-400 bg-amber-400/10"
+                    : "border-l-gray-700 bg-white/[0.05] hover:bg-white/[0.09] hover:border-l-amber-400/60"
+                }`}
+              >
+                <span
+                  className={`inline-block w-7 h-7 mr-3 text-center leading-7 text-xs font-black transition-colors ${
+                    isSelected
+                      ? "bg-amber-400 text-black"
+                      : "bg-gray-700 text-gray-300 group-hover:text-amber-400"
+                  }`}
+                >
+                  {labels[i]}
+                </span>
+                <span className="text-sm sm:text-base">{choice.text}</span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+}
