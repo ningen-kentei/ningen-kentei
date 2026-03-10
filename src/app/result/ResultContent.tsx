@@ -51,17 +51,26 @@ function ResultContentInner() {
     })
   );
 
-  const shareText = `ニンゲン力検定の結果: ${resultType.title} 人間力${ningenScore}点 / 社不度${shafuScore}% #ニンゲン力検定`;
   const siteUrl = "https://ningen-kentei.vercel.app";
   const resultUrl = `${siteUrl}/result?q=${qParam}&a=${aParam}&shared=1`;
-  const fullShareText = `${shareText}\n${resultUrl}`;
 
-  const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(fullShareText)}`;
+  const shareText = [
+    `【ニンゲン力検定】`,
+    ``,
+    `${resultType.emoji} 結果：${resultType.title}`,
+    ``,
+    `🧠 人間力：${ningenScore} / 100`,
+    `💀 社不度：${shafuScore}%`,
+    ``,
+    `#ニンゲン力検定`,
+  ].join("\n");
+
+  const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(`${shareText}\n${resultUrl}`)}`;
   const lineUrl = `https://line.me/R/share?text=${encodeURIComponent(`${shareText}\n${resultUrl}`)}`;
 
   const handleCopy = async () => {
     try {
-      await navigator.clipboard.writeText(`${shareText}\n${resultUrl}`);
+      await navigator.clipboard.writeText(`${shareText}\n\n${resultUrl}`);
       alert("コピーしました！");
     } catch {
       alert("コピーに失敗しました");
