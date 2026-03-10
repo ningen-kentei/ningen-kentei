@@ -31,6 +31,7 @@ export default function QuizPage() {
   const [answers, setAnswers] = useState<number[]>([]);
   const [fade, setFade] = useState<"in" | "out">("in");
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const question = shuffledQuestions[currentIndex];
   const total = questions.length;
@@ -53,9 +54,12 @@ export default function QuizPage() {
         const newAnswers = [...answers, originalIndex];
 
         if (isLast) {
+          setIsLoading(true);
           const qIds = shuffledQuestions.map((q) => q.id).join(",");
           const encoded = newAnswers.join(",");
-          router.push(`/result?q=${qIds}&a=${encoded}`);
+          setTimeout(() => {
+            router.push(`/result?q=${qIds}&a=${encoded}`);
+          }, 1500);
           return;
         }
 
@@ -69,6 +73,25 @@ export default function QuizPage() {
   );
 
   const progress = ((currentIndex + 1) / total) * 100;
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-dotgrid text-white flex flex-col items-center justify-center">
+        <div className="text-center">
+          <div className="inline-block border-4 border-amber-400 px-6 py-2 mb-6">
+            <span className="text-amber-400 text-sm font-black tracking-[0.3em]">
+              ANALYZING
+            </span>
+          </div>
+          <p className="text-2xl font-black mb-4 animate-pulse">診断中...</p>
+          <p className="text-sm text-gray-500">あなたのニンゲン力を解析しています</p>
+          <div className="mt-8 w-48 h-1 bg-gray-800 mx-auto overflow-hidden">
+            <div className="h-full bg-amber-400 animate-[loading_1.5s_ease-in-out_infinite]" />
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-dotgrid text-white flex flex-col">
