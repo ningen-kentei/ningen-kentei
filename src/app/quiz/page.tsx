@@ -116,7 +116,7 @@ export default function QuizPage() {
 
       {/* Question area */}
       <div
-        className={`flex-1 flex flex-col items-center justify-center px-4 py-8 max-w-2xl mx-auto w-full transition-opacity duration-300 ${
+        className={`flex-1 flex flex-col items-center px-4 pt-12 pb-8 max-w-2xl mx-auto w-full transition-opacity duration-300 ${
           fade === "out" ? "opacity-0" : "opacity-100"
         }`}
       >
@@ -128,8 +128,8 @@ export default function QuizPage() {
         </div>
 
         {/* Question text */}
-        <h2 className="text-xl sm:text-2xl font-bold text-center mb-10 leading-relaxed">
-          {question.text}
+        <h2 className="text-xl sm:text-2xl font-bold text-center mb-10 leading-relaxed min-h-[4em] flex items-center">
+          <span>{question.text}</span>
         </h2>
 
         {/* Choices */}
