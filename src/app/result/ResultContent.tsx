@@ -56,7 +56,7 @@ function ResultContentInner() {
   const fullShareText = `${shareText}\n${resultUrl}`;
 
   const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(fullShareText)}`;
-  const lineUrl = `https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(resultUrl)}&text=${encodeURIComponent(shareText)}`;
+  const lineUrl = `https://line.me/R/share?text=${encodeURIComponent(`${shareText}\n${resultUrl}`)}`;
 
   const handleCopy = async () => {
     try {
