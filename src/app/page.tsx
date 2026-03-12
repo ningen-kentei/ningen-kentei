@@ -74,7 +74,7 @@ export default function Home() {
               2軸で診断
             </h3>
             <p className="text-sm text-gray-500 leading-relaxed">
-              「人間力スコア」と「社会不適合度」の2軸で立体的に分析。
+              「人間力スコア」と「社会不適合度」の2つの軸で立体的に分析。
             </p>
           </div>
 
