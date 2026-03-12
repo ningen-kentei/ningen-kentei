@@ -98,10 +98,19 @@ export default function QuizPage() {
       {/* Progress bar */}
       <div className="sticky top-0 z-10 bg-[#0e0e1a]/95 backdrop-blur-sm px-4 py-3 border-b border-white/5">
         <div className="flex items-center justify-between mb-2">
-          <span className="text-xs font-bold text-amber-400 tracking-wider">
-            Q{currentIndex + 1}
-            <span className="text-gray-600 ml-1">/ {total}</span>
-          </span>
+          <div className="flex items-center gap-3">
+            <a
+              href="/"
+              className="text-gray-500 hover:text-gray-300 text-xs transition-colors"
+              title="トップに戻る"
+            >
+              ✕
+            </a>
+            <span className="text-xs font-bold text-amber-400 tracking-wider">
+              Q{currentIndex + 1}
+              <span className="text-gray-600 ml-1">/ {total}</span>
+            </span>
+          </div>
           <span className="text-xs font-bold text-gray-500">
             {Math.round(progress)}%
           </span>

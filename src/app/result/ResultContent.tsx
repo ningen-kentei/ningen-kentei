@@ -273,6 +273,20 @@ function ResultContentInner() {
           </section>
         </>
       )}
+
+      {/* Footer */}
+      <footer className="w-full py-8 mt-8 text-center text-xs text-gray-600 border-t border-white/5 tracking-wider">
+        <p>&copy; 2026 ニンゲン力検定</p>
+        <div className="mt-2 flex items-center justify-center gap-3">
+          <a href="/privacy" className="text-gray-600 hover:text-amber-400 transition-colors">
+            プライバシーポリシー
+          </a>
+          <span className="text-gray-700">|</span>
+          <a href="/contact" className="text-gray-600 hover:text-amber-400 transition-colors">
+            お問い合わせ
+          </a>
+        </div>
+      </footer>
     </div>
   );
 }
