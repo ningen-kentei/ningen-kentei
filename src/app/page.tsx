@@ -29,16 +29,14 @@ export default function Home() {
             <div className="h-px flex-1 max-w-16 bg-gradient-to-l from-transparent to-amber-400/60" />
           </div>
 
-          <p className="text-lg sm:text-xl text-gray-300 mb-2 font-medium">
+          <p className="text-base sm:text-xl text-gray-300 mb-2 font-medium whitespace-nowrap">
             あなたはまだ&quot;人間&quot;として生き残れるか。
           </p>
-          <p className="text-lg sm:text-xl text-gray-300 mb-10 font-medium">
+          <p className="text-base sm:text-xl text-gray-300 mb-10 font-medium whitespace-nowrap">
             ── あるいは、すでに社会から脱落しているか。
           </p>
-          <p className="text-sm text-gray-500 mb-12 leading-relaxed max-w-md mx-auto">
-            20問の質問であなたの「人間力」と「社会不適合度」を測定。
-            <br />
-            社不の自覚がある方も、ない方も。結局みんな、どこかズレてる。
+          <p className="text-sm text-gray-500 mb-12 leading-relaxed max-w-md mx-auto [text-wrap:balance]">
+            20問の質問であなたの「人間力」と「社会不適合度」を測定。社不の自覚がある方も、ない方も。結局みんな、どこかズレてる。
           </p>
 
           <Link
@@ -73,7 +71,7 @@ export default function Home() {
             <h3 className="text-base font-bold mb-2 text-white mt-1">
               2軸で診断
             </h3>
-            <p className="text-sm text-gray-500 leading-relaxed">
+            <p className="text-sm text-gray-500 leading-relaxed [text-wrap:balance]">
               「人間力スコア」と「社会不適合度」の2つの軸で立体的に分析。
             </p>
           </div>
