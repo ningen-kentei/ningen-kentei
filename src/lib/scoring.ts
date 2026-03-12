@@ -130,8 +130,8 @@ export function calculateScores(answers: Choice[]): {
     radarScores.shakaiTekiou +
     radarScores.jisou;
 
-  // 社不ポイントを0〜100%にスケーリング（最大82ポイント→100%）
-  const shafuPercent = Math.round((shafuScore / 82) * 100);
+  // 社不ポイントを0〜100%にスケーリング（最大83ポイント→100%）
+  const shafuPercent = Math.min(100, Math.round((shafuScore / 83) * 100));
 
   return { radarScores, ningenScore, shafuScore: shafuPercent };
 }
