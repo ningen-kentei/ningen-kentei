@@ -14,6 +14,9 @@ export const metadata: Metadata = {
   title: "ニンゲン力検定",
   description:
     "AI時代、あなたはまだ\"人間\"ですか？人間力と社会不適合度を診断します。",
+  verification: {
+    google: "6CPyQVGQpCB6k1cwadM-u7pwG7OrhTPYbnI9pwVqTYA",
+  },
   openGraph: {
     title: "ニンゲン力検定",
     description:
