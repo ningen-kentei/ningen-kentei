@@ -11,25 +11,25 @@ const notoSansJP = Noto_Sans_JP({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ningen-kentei.com"),
-  title: "ニンゲン力検定",
+  title: "ニンゲン力検定 | AI時代の人間力・社会不適合度診断",
   description:
-    "AI時代、あなたはまだ\"人間\"ですか？人間力と社会不適合度を診断します。",
+    "20問であなたの「人間力」と「社会不適合度（社不度）」を無料診断。10タイプの称号付き結果をSNSでシェアしよう。約3分で完了。",
   verification: {
     google: "6CPyQVGQpCB6k1cwadM-u7pwG7OrhTPYbnI9pwVqTYA",
   },
   openGraph: {
-    title: "ニンゲン力検定",
+    title: "ニンゲン力検定 | AI時代の人間力・社会不適合度診断",
     description:
-      "AI時代、あなたはまだ\"人間\"ですか？人間力と社会不適合度を診断します。",
+      "20問であなたの「人間力」と「社会不適合度（社不度）」を無料診断。10タイプの称号付き結果をSNSでシェアしよう。",
     siteName: "ニンゲン力検定",
     locale: "ja_JP",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "ニンゲン力検定",
+    title: "ニンゲン力検定 | AI時代の人間力・社会不適合度診断",
     description:
-      "AI時代、あなたはまだ\"人間\"ですか？人間力と社会不適合度を診断します。",
+      "20問であなたの「人間力」と「社会不適合度（社不度）」を無料診断。10タイプの称号付き結果をSNSでシェアしよう。",
   },
 };
 
