@@ -51,7 +51,7 @@ function ResultContentInner() {
     })
   );
 
-  const siteUrl = "https://ningen-kentei.vercel.app";
+  const siteUrl = "https://ningen-kentei.com";
   const resultUrl = `${siteUrl}/result?q=${qParam}&a=${aParam}&shared=1`;
 
   const shareText = [
@@ -59,7 +59,7 @@ function ResultContentInner() {
     ``,
     `${resultType.emoji} 結果：${resultType.title}`,
     ``,
-    `🧠 人間力：${ningenScore} / 100`,
+    `🧠 人間力：${ningenScore}%`,
     `💀 社不度：${shafuScore}%`,
     ``,
     `#ニンゲン力検定`,
@@ -112,7 +112,7 @@ function ResultContentInner() {
           </p>
           <p className="text-4xl sm:text-5xl font-black text-amber-400">
             {ningenScore}
-            <span className="text-base text-gray-600 ml-1">/100</span>
+            <span className="text-base text-gray-600 ml-1">%</span>
           </p>
         </div>
         <div className="text-center border border-white/10 bg-white/[0.02] px-6 py-4">

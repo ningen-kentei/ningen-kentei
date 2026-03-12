@@ -129,7 +129,7 @@ export async function GET(request: NextRequest) {
                   marginLeft: '4px',
                 }}
               >
-                /100
+                %
               </span>
             </div>
           </div>
