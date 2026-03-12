@@ -141,14 +141,14 @@ export default function QuizPage() {
                 key={i}
                 onClick={() => handleSelect(i)}
                 disabled={selectedIndex !== null}
-                className={`group w-full text-left px-5 py-4 transition-all duration-200 border-l-4 ${
+                className={`group w-full text-left px-5 py-4 transition-all duration-200 border-l-4 flex items-start gap-3 ${
                   isSelected
                     ? "border-l-amber-400 bg-amber-400/10"
                     : "border-l-gray-700 bg-white/[0.05] hover:bg-white/[0.09] hover:border-l-amber-400/60"
                 }`}
               >
                 <span
-                  className={`inline-block w-7 h-7 mr-3 text-center leading-7 text-xs font-black transition-colors ${
+                  className={`shrink-0 w-7 h-7 text-center leading-7 text-xs font-black transition-colors ${
                     isSelected
                       ? "bg-amber-400 text-black"
                       : "bg-gray-700 text-gray-300 group-hover:text-amber-400"
@@ -156,7 +156,7 @@ export default function QuizPage() {
                 >
                   {labels[i]}
                 </span>
-                <span className="text-sm sm:text-base">{choice.text}</span>
+                <span className="text-sm sm:text-base pt-0.5">{choice.text}</span>
               </button>
             );
           })}
