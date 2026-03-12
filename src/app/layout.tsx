@@ -10,7 +10,7 @@ const notoSansJP = Noto_Sans_JP({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ningen-kentei.vercel.app"),
+  metadataBase: new URL("https://ningen-kentei.com"),
   title: "ニンゲン力検定",
   description:
     "AI時代、あなたはまだ\"人間\"ですか？人間力と社会不適合度を診断します。",

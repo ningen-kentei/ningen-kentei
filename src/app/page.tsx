@@ -94,7 +94,10 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="py-8 text-center text-xs text-gray-600 border-t border-white/5 tracking-wider">
-        &copy; 2026 ニンゲン力検定
+        <p>&copy; 2026 ニンゲン力検定</p>
+        <Link href="/privacy" className="mt-2 inline-block text-gray-600 hover:text-amber-400 transition-colors">
+          プライバシーポリシー
+        </Link>
       </footer>
     </div>
   );
