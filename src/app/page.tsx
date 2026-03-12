@@ -35,7 +35,7 @@ export default function Home() {
           <p className="text-base sm:text-xl text-gray-300 mb-10 font-medium whitespace-nowrap">
             ── あるいは、すでに社会から脱落しているか。
           </p>
-          <p className="text-sm text-gray-500 mb-12 leading-relaxed max-w-md mx-auto">
+          <p className="text-xs text-gray-500 mb-12 leading-relaxed max-w-md mx-auto">
             20問の質問であなたの「人間力」と「社会不適合度」を測定。
             <br />
             社不の自覚がある方も、ない方も。結局みんな、どこかズレてる。
