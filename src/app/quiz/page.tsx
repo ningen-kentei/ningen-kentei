@@ -15,17 +15,22 @@ function shuffleArray<T>(array: T[]): T[] {
 
 type ShuffledChoice = Choice & { originalIndex: number };
 
-const labels = ["A", "B", "C", "D"];
+const labels = ["A", "B", "C", "D", "E"];
 
 export default function QuizPage() {
   const router = useRouter();
   const [shuffledQuestions] = useState(() =>
-    shuffleArray(questions).map((q) => ({
-      ...q,
-      shuffledChoices: shuffleArray(
-        q.choices.map((c, i) => ({ ...c, originalIndex: i }))
-      ) as ShuffledChoice[],
-    }))
+    shuffleArray(questions).map((q) => {
+      const mainChoices = q.choices.slice(0, -1).map((c, i) => ({ ...c, originalIndex: i }));
+      const noneChoice = { ...q.choices[q.choices.length - 1], originalIndex: q.choices.length - 1 };
+      return {
+        ...q,
+        shuffledChoices: [
+          ...shuffleArray(mainChoices),
+          noneChoice,
+        ] as ShuffledChoice[],
+      };
+    })
   );
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState<number[]>([]);
@@ -145,28 +150,37 @@ export default function QuizPage() {
         <div className="w-full space-y-3">
           {question.shuffledChoices.map((choice, i) => {
             const isSelected = selectedIndex === i;
+            const isNone = choice.text === "どれにも当てはまらない";
             return (
-              <button
-                key={i}
-                onClick={() => handleSelect(i)}
-                disabled={selectedIndex !== null}
-                className={`group w-full text-left px-5 py-4 transition-all duration-200 border-l-4 flex items-center gap-3 ${
-                  isSelected
-                    ? "border-l-amber-400 bg-amber-400/10"
-                    : "border-l-gray-700 bg-white/[0.05] hover:bg-white/[0.09] hover:border-l-amber-400/60"
-                }`}
-              >
-                <span
-                  className={`shrink-0 w-7 h-7 text-center leading-7 text-xs font-black transition-colors ${
+              <div key={i}>
+                {isNone && (
+                  <div className="border-t border-gray-700/50 my-2" />
+                )}
+                <button
+                  onClick={() => handleSelect(i)}
+                  disabled={selectedIndex !== null}
+                  className={`group w-full text-left px-5 py-4 transition-all duration-200 border-l-4 flex items-center gap-3 ${
                     isSelected
-                      ? "bg-amber-400 text-black"
-                      : "bg-gray-700 text-gray-300 group-hover:text-amber-400"
+                      ? "border-l-amber-400 bg-amber-400/10"
+                      : isNone
+                        ? "border-l-gray-700 bg-white/[0.04] hover:bg-white/[0.08] hover:border-l-gray-400"
+                        : "border-l-gray-700 bg-white/[0.05] hover:bg-white/[0.09] hover:border-l-amber-400/60"
                   }`}
                 >
-                  {labels[i]}
-                </span>
-                <span className="text-sm sm:text-base">{choice.text}</span>
-              </button>
+                  <span
+                    className={`shrink-0 w-7 h-7 text-center leading-7 text-xs font-black transition-colors ${
+                      isSelected
+                        ? "bg-amber-400 text-black"
+                        : isNone
+                          ? "bg-gray-700 text-gray-400 group-hover:text-gray-200"
+                          : "bg-gray-700 text-gray-300 group-hover:text-amber-400"
+                    }`}
+                  >
+                    {isNone ? "-" : labels[i]}
+                  </span>
+                  <span className={`text-sm sm:text-base ${isNone ? "text-gray-400" : ""}`}>{choice.text}</span>
+                </button>
+              </div>
             );
           })}
         </div>

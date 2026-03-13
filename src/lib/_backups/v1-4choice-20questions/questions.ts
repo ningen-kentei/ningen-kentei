@@ -18,13 +18,6 @@ export type Question = {
   choices: Choice[];
 };
 
-const none: Choice = {
-  label: "E",
-  text: "どれにも当てはまらない",
-  scores: { kuukiYomi: 0, keizoku: 0, seikatsu: 0, shakaiTekiou: 0, jisou: 0 },
-  shafu: 0,
-};
-
 export const questions: Question[] = [
   // === 生活習慣系（Q1〜Q4）===
   {
@@ -36,7 +29,6 @@ export const questions: Question[] = [
       { label: "B", text: "3回スヌーズしてギリギリ起きる", scores: { kuukiYomi: 0, keizoku: 2, seikatsu: 2, shakaiTekiou: 0, jisou: 0 }, shafu: 2 },
       { label: "C", text: "スヌーズ無限ループで午前が消える", scores: { kuukiYomi: 0, keizoku: 1, seikatsu: 1, shakaiTekiou: 0, jisou: 0 }, shafu: 3 },
       { label: "D", text: "そもそも寝てないから起きる必要がない", scores: { kuukiYomi: 0, keizoku: 0, seikatsu: 0, shakaiTekiou: 0, jisou: 0 }, shafu: 5 },
-      none,
     ],
   },
   {
@@ -48,7 +40,6 @@ export const questions: Question[] = [
       { label: "B", text: "コンビニかUber Eatsでとりあえず済ませる", scores: { kuukiYomi: 0, keizoku: 2, seikatsu: 3, shakaiTekiou: 0, jisou: 0 }, shafu: 1 },
       { label: "C", text: "気づいたら日付が変わっていて食べてない", scores: { kuukiYomi: 0, keizoku: 1, seikatsu: 1, shakaiTekiou: 0, jisou: 0 }, shafu: 3 },
       { label: "D", text: "食べるより寝ていたい、が本音", scores: { kuukiYomi: 0, keizoku: 0, seikatsu: 0, shakaiTekiou: 0, jisou: 0 }, shafu: 4 },
-      none,
     ],
   },
   {
@@ -60,7 +51,6 @@ export const questions: Question[] = [
       { label: "B", text: "溜まってきたら気が向いた時に回す", scores: { kuukiYomi: 0, keizoku: 2, seikatsu: 2, shakaiTekiou: 0, jisou: 0 }, shafu: 2 },
       { label: "C", text: "着る服がなくなったら仕方なく回す", scores: { kuukiYomi: 0, keizoku: 1, seikatsu: 1, shakaiTekiou: 0, jisou: 0 }, shafu: 3 },
       { label: "D", text: "ファブリーズが洗濯だと思っている", scores: { kuukiYomi: 0, keizoku: 0, seikatsu: 0, shakaiTekiou: 0, jisou: 0 }, shafu: 5 },
-      none,
     ],
   },
   {
@@ -72,7 +62,6 @@ export const questions: Question[] = [
       { label: "B", text: "シャワーだけだけど毎日浴びてる", scores: { kuukiYomi: 0, keizoku: 2, seikatsu: 2, shakaiTekiou: 0, jisou: 0 }, shafu: 1 },
       { label: "C", text: "「明日でいいか」が3日続くことがある", scores: { kuukiYomi: 0, keizoku: 0, seikatsu: 1, shakaiTekiou: 0, jisou: 0 }, shafu: 3 },
       { label: "D", text: "外に出ない日は入る理由がないと思っている", scores: { kuukiYomi: 0, keizoku: 1, seikatsu: 0, shakaiTekiou: 0, jisou: 0 }, shafu: 5 },
-      none,
     ],
   },
   // === 空気読み系（Q5〜Q8）===
@@ -85,7 +74,6 @@ export const questions: Question[] = [
       { label: "B", text: "既読スルーして別の話題を振る", scores: { kuukiYomi: 2, keizoku: 0, seikatsu: 0, shakaiTekiou: 2, jisou: 0 }, shafu: 1 },
       { label: "C", text: "「何が面白いの？」とマジレスする", scores: { kuukiYomi: 0, keizoku: 0, seikatsu: 0, shakaiTekiou: 1, jisou: 0 }, shafu: 4 },
       { label: "D", text: "3日後に突然そのボケに反応する", scores: { kuukiYomi: 1, keizoku: 0, seikatsu: 0, shakaiTekiou: 0, jisou: 0 }, shafu: 3 },
-      none,
     ],
   },
   {
@@ -97,7 +85,6 @@ export const questions: Question[] = [
       { label: "B", text: "相手が話しかけてきたら応じる", scores: { kuukiYomi: 2, keizoku: 0, seikatsu: 0, shakaiTekiou: 2, jisou: 0 }, shafu: 1 },
       { label: "C", text: "ひたすらスマホを見て壁を作る", scores: { kuukiYomi: 0, keizoku: 0, seikatsu: 0, shakaiTekiou: 0, jisou: 0 }, shafu: 4 },
       { label: "D", text: "そもそも飲み会の誘いを「未読のまま」にしていた", scores: { kuukiYomi: 1, keizoku: 0, seikatsu: 0, shakaiTekiou: 1, jisou: 0 }, shafu: 5 },
-      none,
     ],
   },
   {
@@ -109,7 +96,6 @@ export const questions: Question[] = [
       { label: "B", text: "「個性的だね」と当たり障りなく返す", scores: { kuukiYomi: 2, keizoku: 0, seikatsu: 0, shakaiTekiou: 2, jisou: 0 }, shafu: 1 },
       { label: "C", text: "「正直、前の方が良かったかも」と率直に言う", scores: { kuukiYomi: 1, keizoku: 0, seikatsu: 0, shakaiTekiou: 1, jisou: 0 }, shafu: 2 },
       { label: "D", text: "興味なさすぎて「へー」とだけ返してスマホに戻る", scores: { kuukiYomi: 0, keizoku: 0, seikatsu: 0, shakaiTekiou: 0, jisou: 0 }, shafu: 3 },
-      none,
     ],
   },
   {
@@ -121,7 +107,6 @@ export const questions: Question[] = [
       { label: "B", text: "会釈だけして静かに過ごす", scores: { kuukiYomi: 2, keizoku: 0, seikatsu: 0, shakaiTekiou: 3, jisou: 0 }, shafu: 0 },
       { label: "C", text: "イヤホンをして完全に自分の世界に入る", scores: { kuukiYomi: 1, keizoku: 0, seikatsu: 0, shakaiTekiou: 1, jisou: 0 }, shafu: 2 },
       { label: "D", text: "一点を見つめて時間が過ぎるのを待つ", scores: { kuukiYomi: 0, keizoku: 0, seikatsu: 0, shakaiTekiou: 0, jisou: 0 }, shafu: 3 },
-      none,
     ],
   },
   // === 社会適合系（Q9〜Q12）===
@@ -134,7 +119,6 @@ export const questions: Question[] = [
       { label: "B", text: "聞かれたら正直に答えるが、自分からは言い出せない", scores: { kuukiYomi: 0, keizoku: 0, seikatsu: 1, shakaiTekiou: 2, jisou: 1 }, shafu: 1 },
       { label: "C", text: "バレないように静かに修正して何事もなかったことにする", scores: { kuukiYomi: 0, keizoku: 0, seikatsu: 1, shakaiTekiou: 0, jisou: 0 }, shafu: 4 },
       { label: "D", text: "「これ、自分のせいじゃなくない？」と原因を他に探し始める", scores: { kuukiYomi: 0, keizoku: 0, seikatsu: 0, shakaiTekiou: 1, jisou: 0 }, shafu: 3 },
-      none,
     ],
   },
   {
@@ -146,7 +130,6 @@ export const questions: Question[] = [
       { label: "B", text: "連絡だけ入れて、普通の速度で歩いて向かう", scores: { kuukiYomi: 0, keizoku: 0, seikatsu: 1, shakaiTekiou: 2, jisou: 1 }, shafu: 1 },
       { label: "C", text: "「電車遅延です」と嘘の連絡をする", scores: { kuukiYomi: 0, keizoku: 0, seikatsu: 1, shakaiTekiou: 1, jisou: 1 }, shafu: 3 },
       { label: "D", text: "「体調不良です」と連絡して休みに切り替える", scores: { kuukiYomi: 0, keizoku: 0, seikatsu: 2, shakaiTekiou: 2, jisou: 0 }, shafu: 2 },
-      none,
     ],
   },
   {
@@ -158,7 +141,6 @@ export const questions: Question[] = [
       { label: "B", text: "言われたことはちゃんとやる、頼れるメンバー", scores: { kuukiYomi: 0, keizoku: 0, seikatsu: 1, shakaiTekiou: 2, jisou: 1 }, shafu: 2 },
       { label: "C", text: "グループLINEを既読スルーしてフェードアウト", scores: { kuukiYomi: 0, keizoku: 0, seikatsu: 0, shakaiTekiou: 0, jisou: 0 }, shafu: 4 },
       { label: "D", text: "参加はするけどAIに自分の分の作業をやらせる", scores: { kuukiYomi: 0, keizoku: 0, seikatsu: 1, shakaiTekiou: 1, jisou: 1 }, shafu: 3 },
-      none,
     ],
   },
   {
@@ -170,7 +152,6 @@ export const questions: Question[] = [
       { label: "B", text: "軽く会釈だけする", scores: { kuukiYomi: 0, keizoku: 0, seikatsu: 1, shakaiTekiou: 2, jisou: 1 }, shafu: 1 },
       { label: "C", text: "目を逸らして気づかないフリをする", scores: { kuukiYomi: 0, keizoku: 0, seikatsu: 0, shakaiTekiou: 1, jisou: 0 }, shafu: 3 },
       { label: "D", text: "近所の人の顔を一人も知らない", scores: { kuukiYomi: 0, keizoku: 0, seikatsu: 0, shakaiTekiou: 0, jisou: 0 }, shafu: 4 },
-      none,
     ],
   },
   // === AI時代系（Q13〜Q16）===
@@ -183,7 +164,6 @@ export const questions: Question[] = [
       { label: "B", text: "AIの回答を参考にしつつ自分でも調べる", scores: { kuukiYomi: 2, keizoku: 0, seikatsu: 0, shakaiTekiou: 0, jisou: 2 }, shafu: 0 },
       { label: "C", text: "「AIも大したことないな」と使うのをやめる", scores: { kuukiYomi: 1, keizoku: 0, seikatsu: 0, shakaiTekiou: 0, jisou: 1 }, shafu: 2 },
       { label: "D", text: "的外れな回答をそのまま信じてしまう", scores: { kuukiYomi: 0, keizoku: 0, seikatsu: 0, shakaiTekiou: 0, jisou: 0 }, shafu: 5 },
-      none,
     ],
   },
   {
@@ -195,7 +175,6 @@ export const questions: Question[] = [
       { label: "B", text: "「じゃあAIを使いこなす側になる」と宣言する", scores: { kuukiYomi: 1, keizoku: 0, seikatsu: 0, shakaiTekiou: 0, jisou: 2 }, shafu: 1 },
       { label: "C", text: "不安になってTwitterで「AI 仕事 なくなる」で検索する", scores: { kuukiYomi: 2, keizoku: 0, seikatsu: 0, shakaiTekiou: 0, jisou: 0 }, shafu: 3 },
       { label: "D", text: "「むしろ自分がAIに置き換わりたい」と返す", scores: { kuukiYomi: 0, keizoku: 0, seikatsu: 0, shakaiTekiou: 0, jisou: 1 }, shafu: 4 },
-      none,
     ],
   },
   {
@@ -207,7 +186,6 @@ export const questions: Question[] = [
       { label: "B", text: "素直に「わからない」と言って相手に任せる", scores: { kuukiYomi: 1, keizoku: 0, seikatsu: 0, shakaiTekiou: 0, jisou: 2 }, shafu: 1 },
       { label: "C", text: "知ったかぶりしてそれっぽく答える", scores: { kuukiYomi: 2, keizoku: 0, seikatsu: 0, shakaiTekiou: 0, jisou: 1 }, shafu: 2 },
       { label: "D", text: "「それChatGPTに聞いた方が早くない？」と返す", scores: { kuukiYomi: 0, keizoku: 0, seikatsu: 0, shakaiTekiou: 0, jisou: 0 }, shafu: 5 },
-      none,
     ],
   },
   {
@@ -219,7 +197,6 @@ export const questions: Question[] = [
       { label: "B", text: "大事なものだけ見て、あとは適当に流す", scores: { kuukiYomi: 1, keizoku: 0, seikatsu: 0, shakaiTekiou: 0, jisou: 1 }, shafu: 2 },
       { label: "C", text: "未読100件超えが常態。もはや通知の意味がない", scores: { kuukiYomi: 0, keizoku: 0, seikatsu: 0, shakaiTekiou: 0, jisou: 0 }, shafu: 4 },
       { label: "D", text: "通知を全部OFFにしてるので溜まりようがない", scores: { kuukiYomi: 2, keizoku: 0, seikatsu: 0, shakaiTekiou: 0, jisou: 1 }, shafu: 3 },
-      none,
     ],
   },
   // === メンタル系（Q17〜Q20）===
@@ -232,7 +209,6 @@ export const questions: Question[] = [
       { label: "B", text: "週1くらいでゆるく続いている", scores: { kuukiYomi: 0, keizoku: 2, seikatsu: 0, shakaiTekiou: 0, jisou: 1 }, shafu: 1 },
       { label: "C", text: "道具だけ買って満足して放置", scores: { kuukiYomi: 0, keizoku: 0, seikatsu: 0, shakaiTekiou: 0, jisou: 0 }, shafu: 3 },
       { label: "D", text: "もう次の趣味に移行している", scores: { kuukiYomi: 0, keizoku: 1, seikatsu: 0, shakaiTekiou: 0, jisou: 1 }, shafu: 2 },
-      none,
     ],
   },
   {
@@ -244,7 +220,6 @@ export const questions: Question[] = [
       { label: "B", text: "前日の夜に一気にやる（いつものこと）", scores: { kuukiYomi: 0, keizoku: 1, seikatsu: 0, shakaiTekiou: 0, jisou: 1 }, shafu: 2 },
       { label: "C", text: "締め切り当日に「すみません、あと1日...」と連絡する", scores: { kuukiYomi: 0, keizoku: 0, seikatsu: 0, shakaiTekiou: 0, jisou: 1 }, shafu: 4 },
       { label: "D", text: "締め切りの存在を記憶から消去する", scores: { kuukiYomi: 0, keizoku: 0, seikatsu: 0, shakaiTekiou: 0, jisou: 0 }, shafu: 5 },
-      none,
     ],
   },
   {
@@ -256,7 +231,6 @@ export const questions: Question[] = [
       { label: "B", text: "友達に話を聞いてもらう", scores: { kuukiYomi: 0, keizoku: 1, seikatsu: 0, shakaiTekiou: 0, jisou: 1 }, shafu: 1 },
       { label: "C", text: "布団から出ずにSNSの炎上を見て「自分はマシだ」と思う", scores: { kuukiYomi: 0, keizoku: 0, seikatsu: 0, shakaiTekiou: 0, jisou: 0 }, shafu: 4 },
       { label: "D", text: "落ち込みをそのままツイートして反応を待つ", scores: { kuukiYomi: 0, keizoku: 1, seikatsu: 0, shakaiTekiou: 0, jisou: 1 }, shafu: 3 },
-      none,
     ],
   },
   {
@@ -268,7 +242,6 @@ export const questions: Question[] = [
       { label: "B", text: "ぼんやりとはあるけど、まだ動けていない", scores: { kuukiYomi: 0, keizoku: 1, seikatsu: 0, shakaiTekiou: 0, jisou: 1 }, shafu: 2 },
       { label: "C", text: "「とりあえず生きていければいい」と答える", scores: { kuukiYomi: 0, keizoku: 1, seikatsu: 0, shakaiTekiou: 0, jisou: 0 }, shafu: 3 },
       { label: "D", text: "「AIが全部やってくれる未来に賭けている」と答える", scores: { kuukiYomi: 0, keizoku: 0, seikatsu: 0, shakaiTekiou: 0, jisou: 1 }, shafu: 4 },
-      none,
     ],
   },
 ];
