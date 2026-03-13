@@ -130,10 +130,13 @@ export function calculateScores(answers: Choice[]): {
     radarScores.shakaiTekiou +
     radarScores.jisou;
 
+  // 人間力スコアを0〜100%にスケーリング（最大98ポイント→100%）
+  const ningenPercent = Math.min(100, Math.round((ningenScore / 98) * 100));
+
   // 社不ポイントを0〜100%にスケーリング（最大83ポイント→100%）
   const shafuPercent = Math.min(100, Math.round((shafuScore / 83) * 100));
 
-  return { radarScores, ningenScore, shafuScore: shafuPercent };
+  return { radarScores, ningenScore: ningenPercent, shafuScore: shafuPercent };
 }
 
 export function determineType(
