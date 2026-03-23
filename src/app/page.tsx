@@ -92,6 +92,28 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Other quizzes */}
+      <section className="px-6 py-12 border-t border-white/5">
+        <div className="max-w-4xl mx-auto">
+          <Link
+            href="/tekishoku"
+            className="block border border-white/10 bg-white/[0.02] p-6 hover:bg-white/[0.05] transition-colors group"
+          >
+            <div className="flex items-center gap-3 mb-2">
+              <span className="text-xs font-bold text-emerald-400 bg-emerald-400/10 px-2 py-0.5">
+                NEW
+              </span>
+              <h3 className="text-lg font-black text-white group-hover:text-emerald-400 transition-colors">
+                適職タイプ診断
+              </h3>
+            </div>
+            <p className="text-sm text-gray-500">
+              5つの力を測定して、あなたに合った仕事タイプを診断。全10タイプ・約3分。
+            </p>
+          </Link>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="py-8 text-center text-xs text-gray-600 border-t border-white/5 tracking-wider">
         <p>&copy; 2026 ニンゲン力検定</p>
