@@ -219,32 +219,18 @@ function TekishokuResultInner() {
         </p>
         <div className="space-y-3">
           <a
-            href="#affiliate-placeholder"
+            href="https://px.a8.net/svt/ejp?a8mat=4AZMKL+9H5F6I+2JK4+4GRGRM"
+            rel="nofollow"
+            target="_blank"
             className="block border border-white/10 bg-white/[0.02] p-4 hover:bg-white/[0.05] transition-colors"
           >
-            <p className="text-sm font-bold text-white mb-1">リクナビNEXT</p>
+            <p className="text-sm font-bold text-white mb-1">キャリアチケット転職エージェント</p>
             <p className="text-xs text-gray-500">
-              日本最大級の転職サイト。まずはここで求人を探してみよう。
+              成長企業に特化した転職エージェント。自分に合った企業を一緒に探してくれる。
             </p>
           </a>
-          <a
-            href="#affiliate-placeholder"
-            className="block border border-white/10 bg-white/[0.02] p-4 hover:bg-white/[0.05] transition-colors"
-          >
-            <p className="text-sm font-bold text-white mb-1">Wantedly</p>
-            <p className="text-xs text-gray-500">
-              「やりがい」で仕事を探すならここ。カジュアル面談からスタートできる。
-            </p>
-          </a>
-          <a
-            href="#affiliate-placeholder"
-            className="block border border-white/10 bg-white/[0.02] p-4 hover:bg-white/[0.05] transition-colors"
-          >
-            <p className="text-sm font-bold text-white mb-1">Green</p>
-            <p className="text-xs text-gray-500">
-              IT・Web業界に強い転職サイト。エンジニア・クリエイター向け。
-            </p>
-          </a>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="https://www17.a8.net/0.gif?a8mat=4AZMKL+9H5F6I+2JK4+4GRGRM" width={1} height={1} alt="" />
         </div>
       </section>
 
