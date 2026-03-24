@@ -217,20 +217,17 @@ function TekishokuResultInner() {
         <p className="text-xs text-gray-500 mb-4">
           自分のタイプがわかったら、次は具体的に動いてみよう。
         </p>
-        <div className="space-y-3">
+        <div className="flex justify-center">
           <a
-            href="https://px.a8.net/svt/ejp?a8mat=4AZMKL+9H5F6I+2JK4+4GRGRM"
+            href="https://px.a8.net/svt/ejp?a8mat=4AZMKL+9H5F6I+2JK4+4GTTN5"
             rel="nofollow"
             target="_blank"
-            className="block border border-white/10 bg-white/[0.02] p-4 hover:bg-white/[0.05] transition-colors"
           >
-            <p className="text-sm font-bold text-white mb-1">キャリアチケット転職エージェント</p>
-            <p className="text-xs text-gray-500">
-              成長企業に特化した転職エージェント。自分に合った企業を一緒に探してくれる。
-            </p>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="https://www26.a8.net/svt/bgt?aid=260323077573&wid=002&eno=01&mid=s00000011866027013000&mc=1" width={300} height={250} alt="" />
           </a>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="https://www17.a8.net/0.gif?a8mat=4AZMKL+9H5F6I+2JK4+4GRGRM" width={1} height={1} alt="" />
+          <img src="https://www16.a8.net/0.gif?a8mat=4AZMKL+9H5F6I+2JK4+4GTTN5" width={1} height={1} alt="" />
         </div>
       </section>
 
