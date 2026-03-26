@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/contact" },
   title: "お問い合わせ | ニンゲン力検定",
   description:
     "ニンゲン力検定へのお問い合わせ・よくある質問。不具合報告、ご意見・ご要望はこちらから。",

@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/privacy" },
   title: "プライバシーポリシー | ニンゲン力検定",
   description: "ニンゲン力検定のプライバシーポリシーです。",
 };

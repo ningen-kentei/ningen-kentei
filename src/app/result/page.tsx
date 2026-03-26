@@ -13,6 +13,7 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
   const qParam = typeof params.q === 'string' ? params.q : '';
 
   const defaultMeta: Metadata = {
+    alternates: { canonical: '/result' },
     title: 'ニンゲン力検定 - 診断結果',
     description: 'あなたの人間力と社不度の診断結果です。',
   };

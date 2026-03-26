@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/tekishoku" },
   title: "適職タイプ診断 | ニンゲン力検定",
   description:
     "20問の質問から5つの力（創造力・協調力・分析力・行動力・感性）を測定し、あなたに合った仕事タイプを診断。全10タイプ、約3分で完了。無料。",

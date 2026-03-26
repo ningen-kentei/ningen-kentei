@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/types" },
   title: "診断タイプ一覧 | ニンゲン力検定",
   description:
     "ニンゲン力検定の全10タイプを解説。量産型ニンゲン、圧倒的人間、完全社不、異端の天才など、人間力と社不度の組み合わせで決まるあなたのタイプを確認しよう。",

@@ -18,6 +18,7 @@ export async function generateMetadata({
   const qParam = typeof params.q === "string" ? params.q : "";
 
   const defaultMeta: Metadata = {
+    alternates: { canonical: "/tekishoku/result" },
     title: "適職タイプ診断 - 診断結果",
     description: "あなたの適職タイプ診断の結果です。",
   };

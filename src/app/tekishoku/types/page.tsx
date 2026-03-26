@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { tekishokuResultTypes } from "@/lib/tekishoku/scoring";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/tekishoku/types" },
   title: "診断タイプ一覧 | 適職タイプ診断",
   description:
     "適職タイプ診断の全10タイプを解説。スタートアップ型、アーティスト型、リーダー型など、5つの力の組み合わせで決まるあなたの適職タイプを確認しよう。",

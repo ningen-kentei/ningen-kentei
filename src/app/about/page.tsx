@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/about" },
   title: "ニンゲン力検定とは | ニンゲン力検定",
   description:
     "ニンゲン力検定の診断の仕組み・5つの評価軸・開発の背景を解説。20問の質問から「人間力」と「社会不適合度」を2軸で測定し、10タイプの称号で結果を表示します。",

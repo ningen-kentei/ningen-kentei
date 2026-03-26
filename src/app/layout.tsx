@@ -11,6 +11,9 @@ const notoSansJP = Noto_Sans_JP({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ningen-kentei.com"),
+  alternates: {
+    canonical: "/",
+  },
   title: "ニンゲン力検定 | AI時代の人間力・社会不適合度診断",
   description:
     "20問であなたの「人間力」と「社会不適合度（社不度）」を無料診断。10タイプの称号付き結果をSNSでシェアしよう。約3分で完了。",
